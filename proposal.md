@@ -1,16 +1,16 @@
-# [Project Name]
+# RetroPlay: A Gateway to Classic Gaming
 
-Created by Ajene Christian and Joshua.
+Created by Ajene and Joshua
 
 ## 🚀 Mission statement
 
-Our application, [app name] is for [target audience]. It allows users to [what it does and why audience would use it]
+Our application, RetroPlay is for users that love play retro games and want an easy to use website. It allows users to explore a list of 500,000+ retro games, create a profile, and save their favorite games.
 
 ## API & React Router
 
-This application will use the [name of API] API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
+This application will use the [ API here], which provides detailed data about games, platforms, and genres. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
-- Link to API documentation: [Link goes here]
+- Link to API documentation:
 - API endpoint #1
   - Description of endpoint
   - List of data values used by the endpoint
@@ -21,7 +21,7 @@ This application will use the [name of API] API. Below are the documentation and
   - Description of endpoint
   - List of data values used by the endpoint
 
-[If your API requires an API key, say so here.]
+API key:
 
 **Example:**
 
@@ -54,14 +54,9 @@ The application will feature the following frontend routes and core features:
 
 If time permits, the following stretch features will be implemented in order of priority:
 
-- Users will be able to...
-- Users will be able to...
-- Users will be able to...
-
-**Example:**
-
-- Users will be able to save and view favorited artworks using local storage
-- Users will be able to change the color scheme of the website from light mode to dark mode
+- Users will be able to save and view favorite games using local storage.
+- Users will be able to filter games by genre and platform.
+- Users will be able to view detailed game reviews and ratings.
 
 ## 📆 Timeline for reaching MVP in 1 week
 
@@ -69,9 +64,9 @@ To ensure that we can complete all core features of the application in 1 week, w
 
 **Day 1**
 
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+- [ ] Set up React project and install necessary dependencies (React Router, Axios)
+- [ ] Create the basic structure for the homepage and search page.
+- [ ] Set up basic API calls to fetch game data from API.
 
 **Day 2**
 
