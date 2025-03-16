@@ -1,67 +1,67 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
+import fetchData from "../utils/fetchdata";
 
 function App() {
-  const [games, setGames] = useState([]); // Initializing as an empty array
+  // Create state for the fetched data
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(
-      "https://cors-anywhere.herokuapp.com/https://www.freetogame.com/api/games"
-    )
-      .then((response) => {
-        if (!response.ok) {
-          //console.log(response.ok);
-          throw new Error("Failed to fetch games");
+    const getData = async () => {
+      try {
+        const [result, err] = await fetchData(
+          "https://free-to-play-games-database.p.rapidapi.com/api/games",
+          {
+            method: "GET",
+            headers: {
+              "x-rapidapi-key":
+                "5a29b66daemsh4d2c0f82c1cfb33p1fed14jsnf4306b9497e0",
+              "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+            },
+          }
+        );
+        if (err) {
+          setError(err.message);
+          return;
         }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("API Response:", data); // Log the whole response for inspection
-        // Check if the data has a 'results' key and it's an array
 
-        setGames(data); // Set the games data to the state
+        console.log(result);
+        setData(result);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-        setLoading(false);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
+    getData();
   }, []);
+
+  // Conditional Rendering
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
-  // Debugging check: Ensure games is a valid array and has at least one element
-  if (games && games.length === 0) {
-    return <div>No games available.</div>;
-  }
-
-  // Access the first game only if games exists and has data
-  //const firstGame = games[0]; // This should now be safe to access
+  if (error) return <p>{error}</p>;
 
   return (
     <div>
-      <h1>Retro Games</h1>
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>
-            <h3>{game.title}</h3>
-            <img src={game.thumbnail} alt={game.title} />
-            <p>{game.short_description}</p>
-            <a href={game.game_url} target="_blank" rel="noopener noreferrer">
-              Play {game.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <h1>Free-to-Play Games</h1>
+      <ol>
+        {/* Check if data is available */}
+        {data && data.length > 0 ? (
+          data.map((game) => (
+            <li key={game.id}>
+              {game.title} - {game.genre}
+            </li>
+          ))
+        ) : (
+          <li>No games found.</li>
+        )}
+      </ol>
     </div>
   );
 }
