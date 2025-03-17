@@ -1,16 +1,10 @@
----
-
 # **PlayHub: A Gateway to All Your Favorite Games**
 
 **Created by:** Ajene and Joshua
 
----
-
 ## 🚀 **Mission Statement**
 
 **PlayHub** is a user-friendly platform designed for game enthusiasts to easily access, explore, and enjoy a wide variety of games. Users can browse through a massive collection of games, create profiles, save their favorite games, and enjoy fun interactive features like random joke generation and quirky language translations. Our goal is to provide a seamless and enjoyable gaming and entertainment experience.
-
----
 
 ## **API & React Router**
 
