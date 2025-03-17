@@ -27,7 +27,11 @@ function App() {
           return;
         }
 
-        console.log(result);
+        // CHECKING DATA
+        console.log(result[0]);
+        console.log(result[0].game_url);
+        // CHECKING DATA
+
         setData(result);
       } catch (error) {
         setError(error.message);
