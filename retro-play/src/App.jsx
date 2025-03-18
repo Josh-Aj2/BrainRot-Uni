@@ -70,4 +70,34 @@ function App() {
   );
 }
 
+import { useState } from "react";
+
+function TranslationPage() {
+  const [text, setText] = useSTate("");
+  const [translatedText, setTranslatedText] = useState("");
+  const [langauge, setLangauge] = useState("es");
+  const [error, setError] = useState(null);
+
+  const translateText = async () => {
+    try {
+      const response = await fetch("https://libretranslate.com/translate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          q: text,
+          source: "en",
+          target: language,
+        }),
+      });
+      const result = await response.json();
+      setTranslatedText(result.translated)
+    }
+  }
+}
+
+
+
+
 export default App;
