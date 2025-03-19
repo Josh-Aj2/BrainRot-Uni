@@ -4,7 +4,7 @@ import fetchData from "./adapters/fetchdata";
 import { Link } from "react-router-dom";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { GameListPage } from "./adapters"; // Game list page
+import giveMeList from "./adapters/GameListPage"; // Game list page
 //import TranslationAndJokePage from "./pages/TranslationAndJokePage"; // Translation & Joke page
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         {/* Define routes for the pages */}
-        <Route path="/" element={<GameListPage />} />
+        <Route path="/" element={<giveMeList />} />
         <Route path="/translate" element={<TranslationAndJokePage />} />
       </Routes>
     </Router>

@@ -47,7 +47,9 @@ function giveMeList() {
     return <div>Loading...</div>;
   }
 
-  if (error) return <p>{error}</p>;
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div>
@@ -67,7 +69,7 @@ function giveMeList() {
     </div>
   );
 }
+// // Inside the component JSX
+// <Link to="/translate">Go to Translator & Joke Generator</Link>;
 
-giveMeList();
-// Inside the component JSX
-<Link to="/translate">Go to Translator & Joke Generator</Link>;
+export default giveMeList;
