@@ -4,8 +4,8 @@ import fetchData from "./adapters/fetchdata";
 import { Link } from "react-router-dom";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import GameListPage from "./adapters"; // Game list page
-import TranslationAndJokePage from "./pages/TranslationAndJokePage"; // Translation & Joke page
+import { GameListPage } from "./adapters"; // Game list page
+//import TranslationAndJokePage from "./pages/TranslationAndJokePage"; // Translation & Joke page
 
 function App() {
   return (

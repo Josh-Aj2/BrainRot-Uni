@@ -1,4 +1,6 @@
-function App() {
+import { Link } from "react-router-dom";
+
+function giveMeList() {
   // Create state for the fetched data
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -66,7 +68,6 @@ function App() {
   );
 }
 
-import { Link } from "react-router-dom";
-
+giveMeList();
 // Inside the component JSX
 <Link to="/translate">Go to Translator & Joke Generator</Link>;
