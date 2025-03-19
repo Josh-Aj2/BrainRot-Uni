@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import fetchData from "../adapters/fetchdata";
 
-function giveMeList() {
+function GiveMeList() {
   // Create state for the fetched data
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -70,6 +72,6 @@ function giveMeList() {
   );
 }
 // // Inside the component JSX
-// <Link to="/translate">Go to Translator & Joke Generator</Link>;
+<Link to="/translate">Go to Translator & Joke Generator</Link>;
 
-export default giveMeList;
+export default GiveMeList;
