@@ -11,28 +11,27 @@ function GiveMeList() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const [result, err] = await fetchData(
-          "https://free-to-play-games-database.p.rapidapi.com/api/games",
-          {
-            method: "GET",
-            headers: {
-              "x-rapidapi-key":
-                "5a29b66daemsh4d2c0f82c1cfb33p1fed14jsnf4306b9497e0",
-              "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-            },
-          }
-        );
+        const [result, err] = await fetchData("/api/games", {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "5a29b66daemsh4d2c0f82c1cfb33p1fed14jsnf4306b9497e0",
+            "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+          },
+        });
+
         if (err) {
           setError(err.message);
           return;
         }
 
         // CHECKING DATA
+        console.log(result);
         console.log(result[0]);
         console.log(result[0].game_url);
         // CHECKING DATA
 
-        setData(result);
+        setData(result.games);
       } catch (error) {
         setError(error.message);
       } finally {
