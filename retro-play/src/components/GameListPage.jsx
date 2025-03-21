@@ -29,8 +29,8 @@ function GiveMeList() {
         }
 
         // CHECKING DATA
-        //console.log(result);
-        //console.log(result[0]);
+        console.log(result);
+        console.log(result[0]);
         //console.log(result[0].game_url);
         // CHECKING DATA
 
@@ -56,24 +56,25 @@ function GiveMeList() {
   }
 
   return (
-    <div>
+    <div className="game-container">
       <h1>Free-to-Play Games</h1>
-      <ol>
-        {/* Check if data is available */}
-        {data && data.length > 0 ? (
+      <div className="game-grid">
+        {data &&
+          data.length > 0 &&
           data.map((game) => (
-            <li key={game.id}>
-              {game.title} - {game.genre}
-            </li>
-          ))
-        ) : (
-          <li>No games found.</li>
-        )}
-      </ol>
+            <div key={game.id} className="game-card">
+              <img
+                src={game.thumbnail}
+                alt={game.title}
+                className="game-image"
+              />
+              <h3>{game.title}</h3>
+            </div>
+          ))}
+      </div>
       <Link to="/translate">Go to Translator & Joke Generator</Link>
     </div>
   );
 }
-// // Inside the component JSX
 
 export default GiveMeList;
