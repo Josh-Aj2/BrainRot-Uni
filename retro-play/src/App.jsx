@@ -3,6 +3,7 @@
 // import { Link } from "react-router-dom";
 
 import "./App.css";
+import SecondPage from "./components/SecondPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import GiveMeList from "./components/GameListPage"; // Game list page
 import TranslationAndJokePage from "./components/TranslationAndJokePage"; // Translation & Joke page

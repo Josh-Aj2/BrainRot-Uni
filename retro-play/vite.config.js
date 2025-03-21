@@ -6,13 +6,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "./api": {
-        target: "https://free-to-play-games-database.p.rapidapi.com",
+      "/api/rawg": {
+        target: "https://api.rawg.io/api/games", // Correct target URL
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/api\/rawg/, ""),
         headers: {
-          "x-rapidapi-key": process.env.VITE_RAPIDAPI_KEY,
-          "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+          Authorization: `Bearer ${process.env.VITE_RAWG_API_KEY}`, // API key from rawg.io
         },
       },
     },
