@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import fetchData from "../adapters/fetchdata";
+import { fetchData } from "../adapters/handleFetch";
 
 function GiveMeList() {
   // Create state for the fetched data
@@ -10,15 +10,18 @@ function GiveMeList() {
 
   useEffect(() => {
     const getData = async () => {
+      const url =
+        "https://free-to-play-games-database.p.rapidapi.com/api/games";
+      const options = {
+        method: "GET",
+        headers: {
+          "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+          "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+        },
+      };
+
       try {
-        const [result, err] = await fetchData("/api/games", {
-          method: "GET",
-          headers: {
-            "x-rapidapi-key":
-              "5a29b66daemsh4d2c0f82c1cfb33p1fed14jsnf4306b9497e0",
-            "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-          },
-        });
+        const [result, err] = await fetchData(url, options);
 
         if (err) {
           setError(err.message);
@@ -26,12 +29,12 @@ function GiveMeList() {
         }
 
         // CHECKING DATA
-        console.log(result);
-        console.log(result[0]);
-        console.log(result[0].game_url);
+        //console.log(result);
+        //console.log(result[0]);
+        //console.log(result[0].game_url);
         // CHECKING DATA
 
-        setData(result.games);
+        setData(result);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -67,10 +70,10 @@ function GiveMeList() {
           <li>No games found.</li>
         )}
       </ol>
+      <Link to="/translate">Go to Translator & Joke Generator</Link>
     </div>
   );
 }
 // // Inside the component JSX
-<Link to="/translate">Go to Translator & Joke Generator</Link>;
 
 export default GiveMeList;
