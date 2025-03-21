@@ -1,9 +1,9 @@
+//
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import fetchData from "../adapters/handleFetch";
+import { fetchAnimeList } from "../adapters/handleFetch";
 
 function GiveMeList() {
-  // State for the fetched data
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,14 +11,7 @@ function GiveMeList() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const [result, err] = await fetchData(); // Fetch games from RAWG
-
-        if (err) {
-          setError(err.message);
-          return;
-        }
-
-        //console.log(result); // Debugging
+        const result = await fetchAnimeList(); // Fetch anime list from Jikan API
 
         setData(result);
       } catch (error) {
@@ -36,19 +29,19 @@ function GiveMeList() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="game-container">
-      <h1>Popular Games</h1>
-      <div className="game-grid">
+    <div className="anime-container">
+      <h1>Popular Anime</h1>
+      <div className="anime-grid">
         {data &&
           data.length > 0 &&
-          data.map((game) => (
-            <div key={game.id} className="game-card">
+          data.map((anime) => (
+            <div key={anime.mal_id} className="anime-card">
               <img
-                src={game.background_image} // RAWG uses "background_image" instead of "thumbnail"
-                alt={game.name} // RAWG uses "name" instead of "title"
-                className="game-image"
+                src={anime.images.jpg.image_url} // Jikan API uses "images" with the "jpg" property for image URLs
+                alt={anime.title}
+                className="anime-image"
               />
-              <h3>{game.name}</h3>
+              <h3>{anime.title}</h3>
             </div>
           ))}
       </div>
