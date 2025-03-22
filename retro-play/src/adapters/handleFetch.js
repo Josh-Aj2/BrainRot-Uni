@@ -24,29 +24,9 @@
 //   }
 // };
 
-// export async function fetchGameList(page = 1, pageSize = 20) {
-//   try {
-//     const BASE_URL = "https://api.rawg.io/api/games";
-//     const API_KEY = import.meta.env.VITE_RAWG_API_KEY;
-//     const response = await fetch(
-//       `${BASE_URL}?key=${API_KEY}&page=${page}&page_size=${pageSize}`
-//     );
-
-//     if (!response.ok) {
-//       throw new Error(`Failed to fetch games: ${response.statusText}`);
-//     }
-
-//     const data = await response.json();
-//     return data.results; // The games list
-//   } catch (error) {
-//     console.error("Error fetching games:", error);
-//     return [];
-//   }
-// }
-
-export async function fetchAnimeList(page = 1, pageSize = 20) {
+export async function fetchAnimeList() {
   try {
-    const BASE_URL = `https://api.jikan.moe/v4/anime?page=${page}&limit=${pageSize}`;
+    const BASE_URL = "https://api.jikan.moe/v4/anime";
     const response = await fetch(BASE_URL);
 
     if (!response.ok) {

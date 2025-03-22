@@ -162,12 +162,7 @@ function TranslationAndJokePage() {
       );
 
       const result = await response.json();
-
-      if (result.responseData && result.responseData.translatedText) {
-        setTranslatedText(result.responseData.translatedText);
-      } else {
-        setError("Translation failed. Please try again.");
-      }
+      setTranslatedText(result.translatedText);
     } catch (error) {
       setError(
         "Translation request failed. Please check your internet connection."
