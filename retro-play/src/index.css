@@ -1,3 +1,4 @@
+/*1
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,24 +11,43 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #121212;
+  --text-color: rgba(255, 255, 255, 0.9);
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
 }
 
 a {
-  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  /* font-weight: 500;
   color: #646cff;
-  text-decoration: inherit;
+  text-decoration: inherit; 
 }
 
 a:hover {
-  color: #535bf2;
+  color: var(--secondary-color);
+  text-shadow: 0px 0px 10px var(--primary-color);
+  /* color: #535bf2; 
 }
 
 body {
+  background: linear-gradient(135deg, var(--background-color), #1a1a1a);
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   margin: 0;
+  /* margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; 
 }
 
 h1 {
@@ -36,7 +56,16 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  box-shadow: 4px 4px 10px #0e0e0e, -4px -4px 10px #292929;
+  color: white;
+  /* border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -44,10 +73,11 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s; 
 }
+
 button:hover {
-  border-color: #646cff;
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
 }
 button:focus,
 button:focus-visible {
@@ -62,6 +92,138 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+  */
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #121212;
+  --text-color: rgba(255, 255, 255, 0.9);
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
+}
+
+/* 🔄 Smooth Transitions */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🌟 Glassmorphism Effect */
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+/* 🔘 Stylish Buttons */
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  box-shadow: 4px 4px 10px #0e0e0e, -4px -4px 10px #292929;
+  color: white;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+}
+
+button:active {
+  box-shadow: inset 4px 4px 6px #0e0e0e, inset -4px -4px 6px #292929;
+}
+
+/* 🔄 Animated Background */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background: linear-gradient(-45deg, #1e1e1e, #121212, #252525, #1a1a1a);
+  background-size: 400% 400%;
+  animation: backgroundAnimation 10s ease infinite;
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 🎬 Smooth Page Transitions */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🔗 Cool Hover Effects for Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-shadow: 0px 0px 10px var(--primary-color);
+}
+
+/* 🏞️ Page Styling */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
   button {
     background-color: #f9f9f9;
   }
