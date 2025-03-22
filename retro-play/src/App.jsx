@@ -1,8 +1,4 @@
-// import { useEffect, useState } from "react";
-// import "./App.css";
-// import { Link } from "react-router-dom";
-
-1;
+//1;
 import "./App.css";
 import SecondPage from "./components/SecondPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
