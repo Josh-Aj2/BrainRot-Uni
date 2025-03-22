@@ -29,6 +29,8 @@ function TranslationAndJokePage() {
         }),
       });
       const result = await response.json();
+
+      console.log(result);
       setTranslatedText(result.translatedText);
     } catch (error) {
       setError("Translation failed. Please try again.");
