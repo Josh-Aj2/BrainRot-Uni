@@ -68,15 +68,18 @@ function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
         <p>Loading...</p>
       ) : (
         <>
-          <ul>
+          <div className="anime-grid">
             {searchData.map((anime, index) => (
-              <li key={`${anime.mal_id}-${index}`}>
-                <h3>{anime.title}</h3>
-                <p>{anime.synopsis}</p>
-                <img src={anime.image_url} alt={anime.title} />
-              </li>
+              <div
+                key={`${anime.mal_id}-${index}`}
+                className="anime-grid-item"
+                onClick={() => openModal(anime)}
+              >
+                <img src={anime.images.jpg.image_url} alt={anime.title} />
+                <p>{anime.title}</p>
+              </div>
             ))}
-          </ul>
+          </div>
           <Pagination
             currPage={currPage}
             setCurrPage={setCurrPage}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Modal from "../components/Modal";
 import {
   fetchTopAnime,
   fetchTopCharacters,
@@ -21,6 +22,9 @@ function AnimeList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [hasNextPage, setHasNextPage] = useState(true);
   const [view, setView] = useState("anime");
+
+  //FOR MODAL
+  const [selectedAnime, setSelectedAnime] = useState(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -63,6 +67,14 @@ function AnimeList() {
     setCurrUpcomingPage(1);
   };
 
+  const openModal = (anime) => {
+    setSelectedAnime(anime);
+  };
+
+  const closeModal = () => {
+    setSelectedAnime();
+  };
+
   return (
     <div className="anime-container">
       <div className="sidebar">
@@ -86,35 +98,54 @@ function AnimeList() {
             {view === "anime" && (
               <>
                 <h2>Top Anime</h2>
-                <ul>
+                <div className="anime-grid">
                   {topAnime.map((anime, index) => (
-                    <li key={`${anime.mal_id}-${index}`}>{anime.title}</li>
+                    <div
+                      key={`${anime.mal_id}-${index}`}
+                      className="anime-grid-item"
+                      onClick={() => openModal(anime)}
+                    >
+                      <img src={anime.images.jpg.image_url} alt={anime.title} />
+                      <p>{anime.title}</p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </>
             )}
 
             {view === "characters" && (
               <>
                 <h2>Top Characters</h2>
-                <ul>
-                  {topCharacters.map((character, index) => (
-                    <li key={`${character.mal_id}-${index}`}>
-                      {character.name}
-                    </li>
+                <div className="anime-grid">
+                  {topCharacters.map((anime, index) => (
+                    <div
+                      key={`${anime.mal_id}-${index}`}
+                      className="anime-grid-item"
+                      onClick={() => openModal(anime)}
+                    >
+                      <img src={anime.images.jpg.image_url} alt={anime.title} />
+                      <p>{anime.title}</p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </>
             )}
 
             {view === "upcoming" && (
               <>
                 <h2>Upcoming Anime</h2>
-                <ul>
+                <div className="anime-grid">
                   {upcoming.map((anime, index) => (
-                    <li key={`${anime.mal_id}-${index}`}>{anime.title}</li>
+                    <div
+                      key={`${anime.mal_id}-${index}`}
+                      className="anime-grid-item"
+                      onClick={() => openModal(anime)}
+                    >
+                      <img src={anime.images.jpg.image_url} alt={anime.title} />
+                      <p>{anime.title}</p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </>
             )}
 
@@ -151,6 +182,10 @@ function AnimeList() {
                 setCurrPage={setCurrUpcomingPage}
                 hasNextPage={hasNextPage}
               />
+            )}
+
+            {selectedAnime && (
+              <Modal anime={selectedAnime} onClose={closeModal} />
             )}
 
             <p>

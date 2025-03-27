@@ -1,64 +1,3 @@
-/*1
-:root {
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  --background-color: #121212;
-  --text-color: rgba(255, 255, 255, 0.9);
-  --primary-color: #6a11cb;
-  --secondary-color: #2575fc;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: var(--secondary-color);
-  text-shadow: 0px 0px 10px var(--primary-color);
-  /* color: #535bf2; 
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-/* modal */
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -71,26 +10,8 @@ button:hover {
     background-color: #f9f9f9;
   }
 }
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  --background-color: #121212;
-  --text-color: rgba(255, 255, 255, 0.9);
-  --primary-color: #6a11cb;
-  --secondary-color: #2575fc;
-}
-
-/* 🔄 Smooth Transitions */
+/* Smooth Transitions */
 * {
   transition: all 0.3s ease-in-out;
 }
@@ -105,28 +26,7 @@ button:hover {
   text-align: center;
 }
 
-/* 🔘 Stylish Buttons */
-button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
-  box-shadow: 4px 4px 10px #0e0e0e, -4px -4px 10px #292929;
-  color: white;
-}
-
-button:hover {
-  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
-}
-
-button:active {
-  box-shadow: inset 4px 4px 6px #0e0e0e, inset -4px -4px 6px #292929;
-}
-
-/* 🔄 Animated Background */
+/* Animated Background */
 @keyframes backgroundAnimation {
   0% {
     background-position: 0% 50%;
@@ -144,15 +44,10 @@ body {
   background-size: 400% 400%;
   animation: backgroundAnimation 10s ease infinite;
   color: var(--text-color);
-  font-family: "Inter", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   margin: 0;
 }
 
-/* 🎬 Smooth Page Transitions */
+/* Smooth Page Transitions */
 .fade-in {
   animation: fadeIn 0.6s ease-in-out;
 }
@@ -168,7 +63,7 @@ body {
   }
 }
 
-/* 🔗 Cool Hover Effects for Links */
+/* Cool Hover Effects for Links */
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -181,88 +76,6 @@ a:hover {
   text-shadow: 0px 0px 10px var(--primary-color);
 }
 
-/* 🏞️ Page Styling */
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Ensure the modal is above all other content */
-  animation: fadeIn 0.3s ease-in-out; /* Add fade-in effect */
-}
-
-/* Modal Content - Centered box */
-.modal-content {
-  background: #2a2a2a;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  max-height: 80%;
-  overflow-y: auto; /* Allows scrolling if content exceeds the modal's height */
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Close button */
-.close-button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.close-button:hover {
-  color: #f44336; /* Change color on hover */
-}
-
-/* Image styling */
-.modal-content img {
-  width: 100%;
-  border-radius: 5px;
-  margin-top: 15px;
-}
-
-/* Links and text styling */
-.modal-content a {
-  color: #6a11cb;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.modal-content a:hover {
-  color: #2575fc;
-}
-
 /* Animation for fading in the modal */
 @keyframes fadeIn {
   from {
@@ -271,44 +84,4 @@ h1 {
   to {
     opacity: 1;
   }
-}
-
-.anime-container {
-  padding: 2rem;
-  text-align: center;
-}
-
-.anime-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem; /* Space between grid items */
-  justify-items: center; /* Center each item horizontally */
-  margin-top: 2rem;
-}
-
-.anime-card {
-  background-color: #2a2a2a;
-  color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.anime-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-.anime-image {
-  width: 100%;
-  height: 200px; /* Fixed height to make the grid consistent */
-  object-fit: cover; /* Ensure the image covers the space without stretching */
-}
-
-.anime-card h3 {
-  margin: 10px;
-  font-size: 1.2rem;
-  text-align: center;
 }
