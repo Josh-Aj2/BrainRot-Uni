@@ -1,71 +1,83 @@
-# **PlayHub: A Gateway to All Your Favorite Games**
+# **BrainRot Universe**
 
 **Created by:** Ajene and Joshua
 
 ## 🚀 **Mission Statement**
 
-**PlayHub** is a user-friendly platform designed for game enthusiasts to easily access, explore, and enjoy a wide variety of games. Users can browse through a massive collection of games, create profiles, save their favorite games, and enjoy fun interactive features like random joke generation and quirky language translations. Our goal is to provide a seamless and enjoyable gaming and entertainment experience.
+**BrainRot Universe** is a user-friendly platform designed for anime enthusiasts to easily access and explore a wide variety of anime. Users can browse through a massive collection of anime, see upcoming seasons, a variety of character's information, search for their favorite anime, and enjoy fun interactive features like random joke generation and quirky language translations. Our goal is to provide a seamless and enjoyable entertainment experience.
 
 ## **API & React Router**
 
 This application will use multiple APIs to provide comprehensive game data and interactive features.
 
-- **Link to API Documentation:** [API Documentation URL]
+- **Link to API Documentation:** Jikan API [`https://docs.api.jikan.moe/`]
 
 ### **API Endpoints:**
 
-- **API Endpoint #1: `https://api.freetogame.com/games`**
-  - **Description**: Fetch a list of available games (across various genres and platforms).
+- **API Endpoint #1: `https://api.jikan.moe/v4/top/anime?page=${page}`**
+  - **Description**: Fetch with detailed information about the top anime.
   - **Data Values**:
-    - `id`: Game ID
-    - `title`: Game title
-    - `genre`: Genre of the game
-    - `description`: Brief description of the game
-    - `platform`: Supported platforms (e.g., PC, console)
-    - `image`: Game cover image
-- **API Endpoint #2: `https://api.freetogame.com/games/{id}`**
-  - **Description**: Fetch detailed information about a specific game.
+    - `mal_id`: Anime ID
+    - `image`: Anime cover image
+    - `title_english`: Anime title
+    - `genre`: Anime genre
+    - `synopsis`: Brief description of the anime
+    - `trailer`: Link to a brief video of the anime
+    - `aired`: Air date
+    - `status`: If the show is aired
+    - `demographics.name`: The type of anime
+- **API Endpoint #2: `https://api.jikan.moe/v4/top/characters?page=${page}`**
+  - **Description**: Fetch with detailed information about the top characters.
   - **Data Values**:
-    - `id`: Game ID
-    - `title`: Game title
-    - `genre`: Genre
+    - `mal_id`: Character ID
+    - `name`: Character name
+    - `image`: Image of character
+    - `about`: Detailed description about character
     - `description`: Detailed description
-    - `platform`: Platform
-    - `rating`: User rating
-- **API Endpoint #3: `https://api.freetogame.com/games/search?q={query}`**
-  - **Description**: Search for games based on a query term.
+    - `nicknames`: Other names character is known by
+- **API Endpoint #3: `https://api.jikan.moe/v4/seasons/upcoming?page=${page}`**
+  - **Description**: Fetch with detailed information about new anime seasons.
   - **Data Values**:
-    - `id`: Game ID
-    - `title`: Game title
-    - `genre`: Genre
-    - `description`: Brief description
-
-**API Key:**
-
-- (Insert the API key for access)
-
----
+    - `mal_id`: Anime ID
+    - `image`: Anime cover image
+    - `title_english`: Anime title
+    - `genre`: Anime genre
+    - `synopsis`: Brief description of the anime
+    - `trailer`: Link to a brief video of the anime
+    - `aired`: Air date
+    - `status`: If the show is aired
+    - `demographics.name`: The type of anime
+- **API Endpoint #4: `https://api.jikan.moe/v4/anime?q=${searchQuery}&page=${page}`**
+  - **Description**: Allow the user to search with given term through a list of anime that match given search term.
+  - **Data Values**:
+    - `mal_id`: Anime ID
+    - `image`: Anime cover image
+    - `title_english`: Anime title
+    - `genre`: Anime genre
+    - `synopsis`: Brief description of the anime
+    - `trailer`: Link to a brief video of the anime
+    - `aired`: Air date
+    - `status`: If the show is aired
+    - `demographics.name`: The type of anime
+- **API Endpoint #5: `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${language}`**
+  - **Description**: Allow the user to translate given text.
+- **API Endpoint #6: `https://official-joke-api.appspot.com/random_joke`**
+  - **Description**: Allow the user to generate a random joke.
 
 ## 👩‍💻 **MVP User Stories & Frontend Routes**
 
 The application will feature the following frontend routes and core features:
 
-- **On the `/games` page, users can** view a grid of all available games.
-- **On the `/game/:gameId` page, users can** view detailed information about a specific game (including description, platform, genre, etc.).
-- **On the `/search` page, users can** search for games by title and view search results.
-- **On the `/profile` page, users can** create and manage their user profile, including saving favorite games.
-
----
+- On the `/Anime` page, users can view a grid of all top anime, characters, upcoming anime, and search for anime with detailed information in a modal.
+- On the `/JokeNTranslate` page, users can choose to view the random joke generator or the translator.
 
 ## 🤔 **Stretch User Stories**
 
 If time permits, the following stretch features will be implemented in order of priority:
 
-- **Save Favorite Games**: Users will be able to save and view their favorite games using local storage.
-- **Filter Games**: Users will be able to filter games by genre, platform, or rating.
-- **Detailed Game Reviews**: Users will be able to view detailed game reviews and ratings from other users.
-
----
+- **Save Favorite Anime**: Users will be able to save and view their favorite games using local storage.
+- **Filter Anime**: Users will be able to filter games by genre, platform, or rating.
+- **Create a Profile**: Users will be able to create a profile so they can save their favorite anime ans come back to it.
 
 ## 📆 **Timeline for Reaching MVP in 1 Week**
 
@@ -75,19 +87,19 @@ To ensure that we complete all core features in 1 week, we have outlined the fol
 
 - [ ] Set up the React project and install necessary dependencies (React Router, Axios).
 - [ ] Create the basic structure for the homepage and search page.
-- [ ] Set up basic API calls to fetch game data from the Free to Game API.
+- [ ] Set up basic API calls to fetch anime data from the Jikan API.
 
 ### **Day 2**
 
-- [ ] Implement basic functionality for displaying games on the homepage (`/games`).
-- [ ] Display game details on the `/game/:gameId` page.
+- [ ] Implement basic functionality for displaying anime on the homepage (`/Anime`).
+- [ ] Display anime details on the `/Anime` page.
 - [ ] Add basic styling for the homepage and game details page.
 
 ### **Day 3** (MVP due by the end of the day)
 
-- [ ] Implement the search functionality on the `/search` page.
-- [ ] Ensure the `/profile` page is functional and allows users to save favorite games.
-- [ ] Perform basic testing on the homepage, search page, and profile page.
+- [ ] Implement the search functionality on the `/search` component.
+- [ ] Ensure the `/search` component is functional and allows users to search anime.
+- [ ] Perform basic testing on the homepage and search page.
 
 ### **Day 4**
 
@@ -177,6 +189,6 @@ Below, you can find wireframes for our project. These wireframes outline the str
 
 ## **Conclusion**
 
-**PlayHub** is designed to be the ultimate platform for all gamers, offering access to a wide variety of games, user profiles, and fun interactive features. The platform will make it easy for users to explore new games, keep track of their favorites, and enjoy fun utilities like random joke generation and quirky translations. By the end of our 1-week sprint, we will have an MVP ready for launch, and we will also implement any stretch features if time permits.
+**BrainRot Universe** is designed to be the ultimate platform for all anime enthusiasts, offering access to a wide variety of anime, character information, and fun interactive features. The platform will make it easy for users to explore new anime, find information on their favorite anime, and enjoy fun utilities like random joke generation and quirky translations. By the end of our 1-week sprint, we will have an MVP ready for launch, and we will also implement any stretch features if time permits.
 
 ---
