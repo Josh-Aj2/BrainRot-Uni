@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { fetchAnimeSearch } from "../adapters/animeFetch";
 import Pagination from "./PageChange";
+import Modal from "./Modal";
 
 function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
   const [searchData, setSearchData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchQuery);
-
   const [hasNextPage, setHasNextPage] = useState(true);
+
+  //FOR MODAL
+  const [selectedSearch, setSelectedSearch] = useState(null);
 
   const handleSearch = async () => {
     try {
@@ -52,6 +55,14 @@ function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
     setSearchQuery(newSearchTerm);
   };
 
+  const openModal = (item) => {
+    setSelectedSearch(item);
+  };
+
+  const closeModal = () => {
+    setSelectedSearch(null);
+  };
+
   return (
     <div className="anime-search-container">
       <h2>Search For Anime</h2>
@@ -76,10 +87,15 @@ function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
                 onClick={() => openModal(anime)}
               >
                 <img src={anime.images.jpg.image_url} alt={anime.title} />
-                <p>{anime.title}</p>
+                <p>{anime.title_english}</p>
               </div>
             ))}
           </div>
+          {selectedSearch && (
+            <>
+              <Modal animeSearched={selectedSearch} onClose={closeModal} />
+            </>
+          )}
           <Pagination
             currPage={currPage}
             setCurrPage={setCurrPage}

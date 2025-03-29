@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Modal from "../components/Modal";
 import {
   fetchTopAnime,
   fetchTopCharacters,
@@ -7,6 +6,7 @@ import {
 } from "../adapters/animeFetch";
 import Pagination from "../components/PageChange";
 import AnimeSearch from "../components/AnimeSearch";
+import Modal from "../components/Modal";
 
 function AnimeList() {
   //FOR DATA
@@ -25,6 +25,7 @@ function AnimeList() {
 
   //FOR MODAL
   const [selectedAnime, setSelectedAnime] = useState(null);
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -67,12 +68,19 @@ function AnimeList() {
     setCurrUpcomingPage(1);
   };
 
-  const openModal = (anime) => {
-    setSelectedAnime(anime);
+  const openModal = (item, type) => {
+    if (type === "anime") {
+      setSelectedAnime(item);
+      setSelectedCharacter(null);
+    } else if (type === "character") {
+      setSelectedCharacter(item);
+      setSelectedAnime(null);
+    }
   };
 
   const closeModal = () => {
-    setSelectedAnime();
+    setSelectedAnime(null);
+    setSelectedCharacter(null);
   };
 
   return (
@@ -103,10 +111,10 @@ function AnimeList() {
                     <div
                       key={`${anime.mal_id}-${index}`}
                       className="anime-grid-item"
-                      onClick={() => openModal(anime)}
+                      onClick={() => openModal(anime, "anime")}
                     >
                       <img src={anime.images.jpg.image_url} alt={anime.title} />
-                      <p>{anime.title}</p>
+                      <p>{anime.title_english}</p>
                     </div>
                   ))}
                 </div>
@@ -117,14 +125,17 @@ function AnimeList() {
               <>
                 <h2>Top Characters</h2>
                 <div className="anime-grid">
-                  {topCharacters.map((anime, index) => (
+                  {topCharacters.map((character, index) => (
                     <div
-                      key={`${anime.mal_id}-${index}`}
+                      key={`${character.mal_id}-${index}`}
                       className="anime-grid-item"
-                      onClick={() => openModal(anime)}
+                      onClick={() => openModal(character, "character")}
                     >
-                      <img src={anime.images.jpg.image_url} alt={anime.title} />
-                      <p>{anime.title}</p>
+                      <img
+                        src={character.images.jpg.image_url}
+                        alt={character.title}
+                      />
+                      <p>{character.name}</p>
                     </div>
                   ))}
                 </div>
@@ -142,7 +153,7 @@ function AnimeList() {
                       onClick={() => openModal(anime)}
                     >
                       <img src={anime.images.jpg.image_url} alt={anime.title} />
-                      <p>{anime.title}</p>
+                      <p>{anime.title_english}</p>
                     </div>
                   ))}
                 </div>
@@ -184,10 +195,13 @@ function AnimeList() {
               />
             )}
 
-            {selectedAnime && (
-              <Modal anime={selectedAnime} onClose={closeModal} />
+            {(selectedAnime || selectedCharacter) && (
+              <Modal
+                anime={selectedAnime}
+                character={selectedCharacter}
+                onClose={closeModal}
+              />
             )}
-
             <p>
               {(() => {
                 if (view === "anime") {
