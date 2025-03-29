@@ -2,13 +2,18 @@
 .anime-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: minmax(150px, auto);
   gap: 20px;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .anime-grid-item {
   cursor: pointer;
   transition: transform 0.3s ease;
+  flex-direction: column;
+  align-items: center;
 }
 
 .anime-grid-item:hover {
@@ -16,9 +21,10 @@
 }
 
 .anime-grid-item img {
-  width: 100%;
   height: auto;
   border-radius: 8px;
+  object-fit: cover;
+  max-height: 250px;
 }
 
 .anime-title {
@@ -53,15 +59,28 @@
   border-radius: 8px;
   text-align: center;
   position: relative;
+  color: #000;
 }
 
+.modal-content h1 {
+  font-size: 30px;
+  padding-bottom: 50px;
+}
+
+.anime-bio {
+  text-align: left;
+}
+
+.anime-details {
+  text-align: left;
+}
 /* Close Button Styling */
 .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 2rem;
-  background: transparent;
+  font-size: 1rem;
+  background: rgb(136, 57, 57);
   border: none;
   color: #000;
   cursor: pointer;

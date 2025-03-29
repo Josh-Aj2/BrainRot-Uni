@@ -32,9 +32,11 @@ function Modal({ anime, character, animeSearched, onClose }) {
               <p>
                 <strong>{getDemographicName(anime)}</strong>
               </p>
-              <p>
-                <strong>Background:</strong> {anime.synopsis}
-              </p>
+              <div className="anime-bio">
+                <p>
+                  <strong>Background:</strong> {anime.synopsis}
+                </p>
+              </div>
               {anime.trailer && (
                 <a
                   href={anime.trailer.url}
@@ -44,22 +46,24 @@ function Modal({ anime, character, animeSearched, onClose }) {
                   Watch Trailer
                 </a>
               )}
-              <p>
-                <strong>Air Date: </strong>
-                {anime.aired.string} - {anime.status}
-              </p>
-              <p>
-                <strong>Score: </strong>
-                {anime.score}
-              </p>
-              <p>
-                <strong>Rating: </strong>
-                {anime.rating}
-              </p>
-              <p>
-                <strong>Episodes:</strong> {anime.episodes}, {anime.duration}
-              </p>
-              <p>{anime.title_japanese}</p>
+              <div className="anime-details">
+                <p>
+                  <strong>Air Date: </strong>
+                  {anime.aired.string} - {anime.status}
+                </p>
+                <p>
+                  <strong>Score: </strong>
+                  {anime.score}
+                </p>
+                <p>
+                  <strong>Rating: </strong>
+                  {anime.rating}
+                </p>
+                <p>
+                  <strong>Episodes:</strong> {anime.episodes}, {anime.duration}
+                </p>
+              </div>
+              <h2>{anime.title_japanese}</h2>
             </div>
           </>
         )}

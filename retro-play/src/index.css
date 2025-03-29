@@ -40,11 +40,59 @@
 }
 
 body {
-  background: linear-gradient(-45deg, #1e1e1e, #121212, #252525, #1a1a1a);
+  background: linear-gradient(-45deg, #ff6a00, #ff2f92, #1e3c72, #00c6ff);
   background-size: 400% 400%;
   animation: backgroundAnimation 10s ease infinite;
-  color: var(--text-color);
+  color: var(--text-color, #fff); /* Default text color is white */
   margin: 0;
+}
+
+h1 {
+  font-size: 80px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+nav {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.anime-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+/* Stylish Buttons */
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  box-shadow: 4px 4px 10px #0e0e0e, -4px -4px 10px #292929;
+  color: white;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+}
+
+button:active {
+  box-shadow: inset 4px 4px 6px #0e0e0e, inset -4px -4px 6px #292929;
 }
 
 /* Smooth Page Transitions */
