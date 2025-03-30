@@ -1,7 +1,7 @@
 import { useState } from "react";
 import JustJokes from "../components/Joke";
 import Translator from "../components/Translate";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 function HandleView() {
   const [showJokes, setShowJokes] = useState(true);
@@ -17,9 +17,9 @@ function HandleView() {
 
   return (
     <div className="toggle-component">
-      <Link to="/">
+      {/* <Link to="/">
         <button>Back To Anime</button>
-      </Link>
+      </Link> */}
 
       <h2>Choose your experience</h2>
 

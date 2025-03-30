@@ -2,7 +2,7 @@ import React from "react";
 
 function Pagination({ currPage, setCurrPage, hasNextPage }) {
   return (
-    <div>
+    <div className="page-change-buttons">
       <button
         onClick={() => setCurrPage((prev) => Math.max(prev - 1, 1))}
         disabled={currPage === 1}

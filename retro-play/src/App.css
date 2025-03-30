@@ -1,109 +1,172 @@
-/* Anime Grid Styling */
+/* Anime Grid */
 .anime-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-template-rows: minmax(150px, auto);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-  padding: 20px;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .anime-grid-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  flex-direction: column;
-  align-items: center;
-}
-
-.anime-grid-item:hover {
-  transform: scale(1.05);
 }
 
 .anime-grid-item img {
-  height: auto;
-  border-radius: 8px;
+  width: 100%;
+  height: 300px;
   object-fit: cover;
-  max-height: 250px;
 }
 
-.anime-title {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 10px;
+.anime-grid-item p {
+  padding: 10px;
+  font-weight: bold;
+  color: #444;
 }
 
-/* Modal Overlay */
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+/* Modal Styling */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  overflow: auto; /* Ensures scrolling if the modal is too large for the screen */
+  overflow: auto;
 }
 
-/* Modal Content */
 .modal-content {
-  background-color: white;
-  padding: 20px;
-  max-width: 600px; /* Maximum width of the modal */
-  width: 90%; /* Responsive width */
-  max-height: 90vh; /* Maximum height of the modal */
-  overflow-y: auto; /* Makes the content scrollable if it exceeds the height */
+  background-color: #fff;
   border-radius: 8px;
+  padding: 20px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
   text-align: center;
   position: relative;
+  overflow-y: auto;
   color: #000;
 }
 
-.modal-content h1 {
-  font-size: 30px;
-  padding-bottom: 50px;
-}
-
-.anime-bio {
-  text-align: left;
-}
-
-.anime-details {
-  text-align: left;
-}
-/* Close Button Styling */
 .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 1rem;
-  background: rgb(136, 57, 57);
+  background-color: transparent;
   border: none;
-  color: #000;
+  font-size: 15px;
   cursor: pointer;
+  padding: 5px 10px;
 }
 
 .close-button:hover {
-  color: #f00; /* Change color on hover for better visibility */
+  color: #f00;
 }
 
-/* Image inside Modal */
+.modal-content h1 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
 .modal-content img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 200px;
   height: auto;
-  border-radius: 8px;
+  margin: 10px 0;
 }
 
-/* Link Styling */
-.modal-content a {
-  color: #007bff;
-  text-decoration: none;
+.anime-info {
+  margin: 20px 0;
+}
+
+.anime-info a {
+  color: rgb(80, 146, 201);
+}
+
+.anime-info p {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.anime-info h2 {
+  font-size: 20px;
+}
+
+.anime-info strong {
   font-weight: bold;
 }
 
-.modal-content a:hover {
-  text-decoration: underline;
+.anime-details p {
+  margin: 5px 0;
+}
+
+.character-about {
+  text-align: left;
+}
+
+/* Search Input Styling */
+.anime-search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+
+  border-radius: 8px;
+}
+
+.anime-search-container input {
+  width: 70%;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.anime-search-container button {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.anime-search-container button:hover {
+  background-color: #555;
+}
+
+/* Pagination Styling */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 15px;
+  margin: 0 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button:hover {
+  background-color: #555;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

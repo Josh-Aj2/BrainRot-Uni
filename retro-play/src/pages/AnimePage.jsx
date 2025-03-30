@@ -26,6 +26,7 @@ function AnimeList() {
   //FOR MODAL
   const [selectedAnime, setSelectedAnime] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [selectedUpcoming, setSelectedUpcoming] = useState(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -72,8 +73,14 @@ function AnimeList() {
     if (type === "anime") {
       setSelectedAnime(item);
       setSelectedCharacter(null);
+      setSelectedUpcoming(null);
     } else if (type === "character") {
       setSelectedCharacter(item);
+      setSelectedAnime(null);
+      setSelectedUpcoming(null);
+    } else if (type === "upcoming") {
+      setSelectedUpcoming(item);
+      setSelectedCharacter(null);
       setSelectedAnime(null);
     }
   };
@@ -81,6 +88,7 @@ function AnimeList() {
   const closeModal = () => {
     setSelectedAnime(null);
     setSelectedCharacter(null);
+    setSelectedUpcoming(null);
   };
 
   return (
@@ -146,14 +154,17 @@ function AnimeList() {
               <>
                 <h2>Upcoming Anime</h2>
                 <div className="anime-grid">
-                  {upcoming.map((anime, index) => (
+                  {upcoming.map((upcoming, index) => (
                     <div
-                      key={`${anime.mal_id}-${index}`}
+                      key={`${upcoming.mal_id}-${index}`}
                       className="anime-grid-item"
-                      onClick={() => openModal(anime)}
+                      onClick={() => openModal(upcoming, "upcoming")}
                     >
-                      <img src={anime.images.jpg.image_url} alt={anime.title} />
-                      <p>{anime.title_english}</p>
+                      <img
+                        src={upcoming.images.jpg.image_url}
+                        alt={upcoming.title}
+                      />
+                      <p>{upcoming.title_english}</p>
                     </div>
                   ))}
                 </div>
@@ -195,10 +206,11 @@ function AnimeList() {
               />
             )}
 
-            {(selectedAnime || selectedCharacter) && (
+            {(selectedAnime || selectedCharacter || selectedUpcoming) && (
               <Modal
                 anime={selectedAnime}
                 character={selectedCharacter}
+                upcoming={selectedUpcoming}
                 onClose={closeModal}
               />
             )}

@@ -1,7 +1,7 @@
 import React from "react";
 
-function Modal({ anime, character, animeSearched, onClose }) {
-  if (!anime && !character && !animeSearched) {
+function Modal({ anime, character, animeSearched, upcoming, onClose }) {
+  if (!anime && !character && !animeSearched && !upcoming) {
     return null;
   } // Return null if no anime is selected
 
@@ -26,12 +26,12 @@ function Modal({ anime, character, animeSearched, onClose }) {
 
         {anime && (
           <>
-            <h1>{anime.title_english}</h1>
+            <h2>{anime.title_english}</h2>
             <img src={anime.images.jpg.image_url} alt={anime.title} />
             <div className="anime-info">
-              <p>
+              <h3>
                 <strong>{getDemographicName(anime)}</strong>
-              </p>
+              </h3>
               <div className="anime-bio">
                 <p>
                   <strong>Background:</strong> {anime.synopsis}
@@ -63,14 +63,14 @@ function Modal({ anime, character, animeSearched, onClose }) {
                   <strong>Episodes:</strong> {anime.episodes}, {anime.duration}
                 </p>
               </div>
-              <h2>{anime.title_japanese}</h2>
+              <h3>{anime.title_japanese}</h3>
             </div>
           </>
         )}
 
         {character && (
           <>
-            <h1>{character.name}</h1>
+            <h2>{character.name}</h2>
             <p>
               <strong>Nickname:</strong>
             </p>
@@ -80,29 +80,48 @@ function Modal({ anime, character, animeSearched, onClose }) {
                 <li key={index}>{nickname}</li>
               ))}
             </ul>
-
-            <p>
-              <strong>About:</strong> {character.about}
-            </p>
+            <div className="character-about">
+              <p>
+                <strong>About:</strong> {character.about}
+              </p>
+            </div>
             <div className="name-kanji">
-              <p>{character.name_kanji}</p>
+              <p>
+                <strong>{character.name_kanji}</strong>
+              </p>
             </div>
           </>
         )}
 
         {animeSearched && (
           <>
-            <h1>{animeSearched.title_english}</h1>
+            <h2>{animeSearched.title_english}</h2>
             <img
               src={animeSearched.images.jpg.image_url}
               alt={animeSearched.title}
             />
             <div className="anime-info">
-              <p>
+              <h2>
                 <strong>{getDemographicName(animeSearched)}</strong>
-              </p>
+              </h2>
               <p>
                 <strong>Background:</strong> {animeSearched.synopsis}
+              </p>
+              <p>
+                <strong>Air Date:</strong>
+                {animeSearched.aired.string}
+              </p>
+              <p>
+                <strong>Score: </strong>
+                {animeSearched.score}
+              </p>
+              <p>
+                <strong>Rating: </strong>
+                {animeSearched.rating}
+              </p>
+              <p>
+                <strong>Episodes:</strong> {animeSearched.episodes},{" "}
+                {animeSearched.duration}
               </p>
               {animeSearched.trailer && (
                 <a
@@ -113,7 +132,42 @@ function Modal({ anime, character, animeSearched, onClose }) {
                   Watch Trailer
                 </a>
               )}
-              <p>{animeSearched.title_japanese}</p>
+              <h2>{animeSearched.title_japanese}</h2>
+            </div>
+          </>
+        )}
+
+        {upcoming && (
+          <>
+            <h2>{upcoming.title}</h2>
+
+            <div className="anime-info">
+              <h3>
+                <strong>{getDemographicName(upcoming)}</strong>
+              </h3>
+              <p>
+                <strong>Background:</strong> {upcoming.synopsis}
+              </p>
+              <p>
+                <strong>Air Date:</strong> {upcoming.aired.string}
+              </p>
+
+              <p>
+                <strong>Rating:</strong> {upcoming.rating}
+              </p>
+              <p>
+                <strong>Status:</strong> {upcoming.status}
+              </p>
+              {upcoming.trailer && (
+                <a
+                  href={upcoming.trailer.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Watch Trailer
+                </a>
+              )}
+              <h3>{upcoming.title_japanese}</h3>
             </div>
           </>
         )}
