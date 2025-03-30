@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Modal({ anime, character, animeSearched, upcoming, onClose }) {
   if (!anime && !character && !animeSearched && !upcoming) {
@@ -15,6 +15,12 @@ function Modal({ anime, character, animeSearched, upcoming, onClose }) {
     return data?.demographics?.length > 0
       ? data.demographics[0].name
       : "No demographic";
+  };
+
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
   };
 
   return (
@@ -70,20 +76,33 @@ function Modal({ anime, character, animeSearched, upcoming, onClose }) {
 
         {character && (
           <>
-            <h2>{character.name}</h2>
+            <h2 className="character-title">{character.name}</h2>
             <p>
               <strong>Nickname:</strong>
             </p>
-            <ul>
-              {" "}
-              {character.nicknames.map((nickname, index) => (
-                <li key={index}>{nickname}</li>
-              ))}
-            </ul>
+            <div className="character-nicknames">
+              <ul>
+                {character.nicknames.map((nickname, index) => (
+                  <li key={index} className="nickname-item">
+                    {nickname}
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div className="character-about">
               <p>
-                <strong>About:</strong> {character.about}
+                <strong>About:</strong>{" "}
+                {isExpanded
+                  ? character.about
+                  : character.about.slice(0, 300) +
+                    (character.about.length > 300 ? "..." : "")}
               </p>
+              {/* Show "Show More" / "Show Less" based on state */}
+              {character.about.length > 300 && (
+                <button onClick={handleToggle} className="show-more-btn">
+                  {isExpanded ? "Show Less" : "Show More"}
+                </button>
+              )}
             </div>
             <div className="name-kanji">
               <p>

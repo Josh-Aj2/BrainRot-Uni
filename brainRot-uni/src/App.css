@@ -111,8 +111,32 @@ h2 {
   margin: 5px 0;
 }
 
+/* character modal */
+
 .character-about {
   text-align: left;
+  margin-bottom: 15px;
+}
+
+.character-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+.character-nicknames {
+  margin-bottom: 15px;
+}
+
+.character-nicknames ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nickname-item {
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 /* Search Input Styling */

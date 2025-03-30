@@ -1,7 +1,6 @@
 import { useState } from "react";
 import JustJokes from "../components/Joke";
 import Translator from "../components/Translate";
-//import { Link } from "react-router-dom";
 
 function HandleView() {
   const [showJokes, setShowJokes] = useState(true);
@@ -17,30 +16,28 @@ function HandleView() {
 
   return (
     <div className="toggle-component">
-      {/* <Link to="/">
-        <button>Back To Anime</button>
-      </Link> */}
+      <div className="checkboxes">
+        <h2>Choose your experience</h2>
 
-      <h2>Choose your experience</h2>
+        {/* Checkboxes */}
+        <label>
+          <input
+            type="checkbox"
+            checked={showJokes}
+            onChange={handleJokesCheckbox}
+          />
+          Show Jokes
+        </label>
 
-      {/* Checkboxes */}
-      <label>
-        <input
-          type="checkbox"
-          checked={showJokes}
-          onChange={handleJokesCheckbox}
-        />
-        Show Jokes
-      </label>
-
-      <label>
-        <input
-          type="checkbox"
-          checked={showTranslation}
-          onChange={handleTranslateCheckbox}
-        />
-        Show Translation
-      </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={showTranslation}
+            onChange={handleTranslateCheckbox}
+          />
+          Show Translation
+        </label>
+      </div>
 
       {showJokes && (
         <section className="jokes-section">
