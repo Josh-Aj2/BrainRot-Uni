@@ -11,7 +11,7 @@ const Header = () => {
         <Link to="/handleview">Jokes & Translator</Link>
         {location.pathname === "/handleview" && (
           <Link to="/">
-            <button>Back To Anime</button>
+            <button className="home-btn">Back To Anime</button>
           </Link>
         )}
       </nav>

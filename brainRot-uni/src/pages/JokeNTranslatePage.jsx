@@ -16,16 +16,15 @@ function HandleView() {
 
   return (
     <div className="toggle-component">
+      <h2 className="picking">Choose your experience</h2>
       <div className="checkboxes">
-        <h2>Choose your experience</h2>
-
         {/* Checkboxes */}
         <label>
           <input
             type="checkbox"
             checked={showJokes}
             onChange={handleJokesCheckbox}
-          />
+          />{" "}
           Show Jokes
         </label>
 
@@ -34,7 +33,7 @@ function HandleView() {
             type="checkbox"
             checked={showTranslation}
             onChange={handleTranslateCheckbox}
-          />
+          />{" "}
           Show Translation
         </label>
       </div>

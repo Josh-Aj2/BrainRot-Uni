@@ -22,12 +22,14 @@ function JustJokes() {
 
   return (
     <div className="joke-section">
-      <h2>Random Joke</h2>
-      <p>{joke}</p>
+      <h2 className="JnT-heading">Random Joke</h2>
+      <p className="joke-data">{joke}</p>
 
       {error && <div className="error">{error.message}</div>}
 
-      <button onClick={doJustJokes}>Get A Joke</button>
+      <button className="joke" onClick={doJustJokes}>
+        Get A Joke
+      </button>
     </div>
   );
 }

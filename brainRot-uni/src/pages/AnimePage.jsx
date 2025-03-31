@@ -39,7 +39,7 @@ function AnimeList() {
 
           //CHECKING DATA
           console.log("Upcoming", upcomingData);
-          console.log("Top Anime", animeData.data[10]);
+          console.log("Top Anime", animeData.data);
           console.log("Top characters", charactersData);
 
           //CHECKING DATA

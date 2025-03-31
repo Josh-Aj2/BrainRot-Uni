@@ -17,12 +17,6 @@ function Modal({ anime, character, animeSearched, upcoming, onClose }) {
       : "No demographic";
   };
 
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
-
   return (
     <div className="modal-overlay" onClick={handleModalClick}>
       <div className="modal-content">
@@ -89,21 +83,10 @@ function Modal({ anime, character, animeSearched, upcoming, onClose }) {
                 ))}
               </ul>
             </div>
-            <div className="character-about">
-              <p>
-                <strong>About:</strong>{" "}
-                {isExpanded
-                  ? character.about
-                  : character.about.slice(0, 300) +
-                    (character.about.length > 300 ? "..." : "")}
-              </p>
-              {/* Show "Show More" / "Show Less" based on state */}
-              {character.about.length > 300 && (
-                <button onClick={handleToggle} className="show-more-btn">
-                  {isExpanded ? "Show Less" : "Show More"}
-                </button>
-              )}
-            </div>
+
+            <p className="background">
+              <strong>About:</strong> {character.about}
+            </p>
             <div className="name-kanji">
               <p>
                 <strong>{character.name_kanji}</strong>

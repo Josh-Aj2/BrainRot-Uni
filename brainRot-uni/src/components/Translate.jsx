@@ -39,30 +39,38 @@ function Translator() {
 
   return (
     <div className="translation-section">
-      <h2>Translate Text</h2>
-      <label htmlFor="text-input">Enter text to translate</label>
-      <textarea
-        id="text-input"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        rows="4"
-        cols="50"
-      ></textarea>
+      <h2 className="JnT-heading">Translate Text</h2>
+      <div className="translate-input">
+        <label htmlFor="text-input">Enter text to translate</label>
+        <textarea
+          id="text-input"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          rows="4"
+          cols="50"
+        ></textarea>
+      </div>
       <br />
-      <label htmlFor="language-select">Choose Language:</label>
-      <select
-        id="language-select"
-        value={language}
-        onChange={(e) => setLanguage(e.target.value)}
+      <div className="language-select">
+        <label htmlFor="language-select">Choose Language:</label>
+        <select
+          id="language-select"
+          value={language}
+          onChange={(e) => setLanguage(e.target.value)}
+        >
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="it">Italian</option>
+          <option value="pt">Portuguese</option>
+        </select>
+      </div>
+      <br />
+      <button
+        className="translate-btn"
+        onClick={handleTranslateClick}
+        disabled={loading}
       >
-        <option value="es">Spanish</option>
-        <option value="fr">French</option>
-        <option value="de">German</option>
-        <option value="it">Italian</option>
-        <option value="pt">Portuguese</option>
-      </select>
-      <br />
-      <button onClick={handleTranslateClick} disabled={loading}>
         {loading ? "Translating..." : "Translate"}
       </button>
       {error && <div className="error">{error}</div>}
