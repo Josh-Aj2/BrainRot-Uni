@@ -75,7 +75,7 @@ function Translator() {
       </button>
       {error && <div className="error">{error}</div>}
       {translatedText && (
-        <div>
+        <div className="translated">
           <h2>Translated Text:</h2>
           <p>{translatedText}</p>
         </div>

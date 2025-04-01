@@ -1,4 +1,281 @@
-/* Anime Grid */
+/* Global Styles */
+* {
+  transition: all 0.3s ease-in-out;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(-45deg, #8c715e, #7d395a, #1e3c72, #00c6ff);
+  background-size: 400% 400%;
+  animation: backgroundAnimation 10s ease infinite;
+  color: var(--text-color, #fff);
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 80px;
+  text-align: center;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 0;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+nav {
+  font-size: 30px;
+  text-align: center;
+  margin: 10px 15px 10px 10px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+button.home-btn {
+  padding: 10px 10px 10px 10px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  nav {
+    font-size: 25px;
+  }
+}
+
+/* Smooth Page Transitions */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animated Background */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Main Layout: Flexbox */
+.anime-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 250px; /* Make space for sidebar */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  height: 50%;
+}
+
+.sidebar button {
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background-color: #555;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 30%;
+    position: fixed; /* Reset the fixed position on mobile */
+    padding: 10px;
+    margin: 0;
+    height: 50%;
+  }
+
+  .sidebar button {
+    padding: 5px;
+  }
+
+  .anime-container {
+    margin-left: 0;
+    flex-direction: column; /*Stack sidebar and content vertically */
+  }
+}
+
+.page-change-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 20px; /* Add some space between sidebar and content */
+}
+
+/* 🌟 Glassmorphism Effect */
+.glass-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .joke-section {
+    width: 90%;
+  }
+
+  .joke {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  .joke-data {
+    font-size: 1rem;
+  }
+  .content {
+    margin: 13px 30px 25px 145px;
+    padding: 0;
+  }
+
+  body {
+    background: #13b0ab;
+    background-size: initial;
+    animation: none;
+  }
+}
+
+/* Stylish Buttons */
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(145deg, #1e1e1e, #2a2a2a);
+  box-shadow: 4px 4px 10px #0e0e0e, -4px -4px 10px #292929;
+  color: white;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+}
+
+button:active {
+  box-shadow: inset 4px 4px 6px #0e0e0e, inset -4px -4px 6px #292929;
+}
+
+/* Cool Hover Effects for Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--secondary-color);
+  text-shadow: 0px 0px 10px var(--primary-color);
+}
+
+/* Joke N Translation */
+.translation-section,
+.joke-section {
+  width: 80%;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: lightcyan;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.joke-section .joke-data {
+  font-size: 20px;
+  color: #0e0e0e;
+}
+
+h2.picking,
+h2.JnT-heading {
+  text-align: center;
+  font-size: 35px;
+  color: black;
+  font-weight: bold;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Anime grid */
 .anime-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -26,9 +303,23 @@
   color: #444;
 }
 
-h2 {
-  font-size: 1.5em;
-  margin-bottom: 20px;
+@media (max-width: 600px) {
+  .anime-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .anime-grid-item {
+    width: 100%;
+  }
+  .anime-grid-item img {
+    height: auto;
+    object-fit: contain;
+  }
+  .anime-grid-item p {
+    padding: 10px;
+    font-size: 1rem;
+  }
 }
 
 /* Modal Styling */
@@ -107,12 +398,7 @@ h2 {
   font-weight: bold;
 }
 
-.anime-details p {
-  margin: 5px 0;
-}
-
 /* character modal */
-
 .character-about {
   text-align: left;
   margin-bottom: 15px;
@@ -124,6 +410,7 @@ h2 {
   margin-bottom: 10px;
   color: #333;
 }
+
 .character-nicknames {
   margin-bottom: 15px;
 }
@@ -139,12 +426,20 @@ h2 {
   border-radius: 5px;
 }
 
+@media (max-width: 600px) {
+  .modal-content {
+    width: 80%;
+  }
+  .close-button {
+    font-size: 10px;
+  }
+}
+
 /* Search Input Styling */
 .anime-search-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-
   border-radius: 8px;
 }
 
@@ -162,13 +457,31 @@ h2 {
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border: none;
 }
 
 .anime-search-container button:hover {
   background-color: #555;
 }
 
+.anime-search-container form {
+  padding-bottom: 35px;
+}
+
+@media (max-width: 600px) {
+  .anime-search-container {
+    margin: 0;
+    padding: 0;
+  }
+  .anime-search-container form {
+    display: flex;
+    flex-direction: row;
+  }
+  .anime-search-container button {
+    font-size: 12px;
+    border: none;
+  }
+}
 /* Pagination Styling */
 .pagination {
   display: flex;
@@ -196,21 +509,15 @@ h2 {
 }
 
 /* Translate page */
-.translation-section {
-  width: 80%;
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  background-color: lightcyan;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
 .translate-input {
   display: flex;
   flex-direction: column;
   color: black;
+}
+
+.translated {
+  color: black;
+  font-size: 20px;
 }
 
 .language-select {
@@ -228,3 +535,54 @@ h2 {
   color: rgb(148, 40, 40);
   font-weight: bold;
 }
+
+/*  */
+/*  */
+/*  */
+/* @media (max-width: 600px) {
+  body {
+    background: #ff6a00;
+    background-size: initial;
+    animation: none;
+  }
+} */
+
+/* Animation for fading in the modal */
+/* @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+} */
+
+/* JOkes N Translator */
+/* 
+
+.joke-section {
+  width: 80%;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: lightcyan;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+button.joke {
+  margin: 20px auto;
+} */
+
+/* p.joke-data {
+  margin: 40px auto;
+  font-size: 20px;
+  color: #0e0e0e;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+} */
+/* 
+.anime-details p {
+  margin: 5px 0;
+}
+ */
