@@ -17,6 +17,16 @@ function Modal({ anime, character, animeSearched, upcoming, onClose }) {
       : "No demographic";
   };
 
+  // Function to render the about section by splitting by newline characters
+  const renderAboutSection = (aboutText) => {
+    const sections = aboutText.split("\n"); // Split by newlines
+    return sections.map((line, index) => (
+      <p key={index} style={{ marginBottom: "10px" }}>
+        {line}
+      </p>
+    ));
+  };
+
   return (
     <div className="modal-overlay" onClick={handleModalClick}>
       <div className="modal-content">
@@ -70,27 +80,14 @@ function Modal({ anime, character, animeSearched, upcoming, onClose }) {
 
         {character && (
           <>
-            <h2 className="character-title">{character.name}</h2>
-            <p>
-              <strong>Nickname:</strong>
-            </p>
+            <h3 className="character-title">{character.name}</h3>
             <div className="character-nicknames">
-              <ul>
-                {character.nicknames.map((nickname, index) => (
-                  <li key={index} className="nickname-item">
-                    {nickname}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <p className="background">
-              <strong>About:</strong> {character.about}
-            </p>
-            <div className="name-kanji">
               <p>
-                <strong>{character.name_kanji}</strong>
+                <strong>Nickname:</strong> {character.nicknames.join(", ")}
               </p>
+            </div>
+            <div className="character-about">
+              {renderAboutSection(character.about)}
             </div>
           </>
         )}

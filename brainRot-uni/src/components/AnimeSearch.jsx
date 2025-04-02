@@ -6,7 +6,6 @@ import Modal from "./Modal";
 function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
   const [searchData, setSearchData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchQuery);
   const [hasNextPage, setHasNextPage] = useState(true);
 
   //FOR MODAL
@@ -15,7 +14,7 @@ function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
   const handleSearch = async () => {
     try {
       setLoading(true);
-      const animeData = await fetchAnimeSearch(debouncedSearchTerm, currPage);
+      const animeData = await fetchAnimeSearch(searchQuery, currPage);
 
       // Checking
       console.log("Anime Search:", animeData);
@@ -29,24 +28,8 @@ function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
     }
   };
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setDebouncedSearchTerm(searchQuery);
-    }, 500);
-    return () => clearTimeout(timeoutId);
-  }, [searchQuery]);
-
-  useEffect(() => {
-    if (debouncedSearchTerm !== "") {
-      handleSearch();
-    }
-  }, [debouncedSearchTerm, currPage]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (debouncedSearchTerm !== "") {
-      setCurrPage(1);
-    }
     handleSearch();
   };
 
@@ -62,6 +45,12 @@ function AnimeSearch({ searchQuery, setSearchQuery, currPage, setCurrPage }) {
   const closeModal = () => {
     setSelectedSearch(null);
   };
+
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      handleSearch();
+    }
+  }, [searchQuery, currPage]);
 
   return (
     <div className="anime-search-container">

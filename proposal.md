@@ -10,7 +10,7 @@
 
 This application will use multiple APIs to provide comprehensive game data and interactive features.
 
-- **Link to API Documentation:** Jikan API [`https://docs.api.jikan.moe/`]
+- **Link to API Documentation:** Jikan API [`https://docs.api.jikan.moe/`][`https://mymemory.translated.net `]
 
 ### **API Endpoints:**
 

@@ -6,7 +6,6 @@ const Header = () => {
   return (
     <header>
       <h1>BrainRot Universe</h1>
-
       <nav>
         <Link to="/handleview">Jokes & Translator</Link>
         {location.pathname === "/handleview" && (
