@@ -8,7 +8,11 @@ Users can browse through a massive collection of anime, see upcoming seasons, ex
 
 This project was built to demonstrate mastery of React fundamentals, state management, and modern web development technologies. It's intended for developers looking to showcase their React skills, potential employers evaluating technical capabilities, and anyone interested in learning advanced React patterns and best practices.
 
-**ADD SCREENSHOTS HERE**
+### UI/UX
+
+![Anime list](./app/read-me-img/animepageimg.png)
+![Just Jokes](./app/read-me-img/justjokesimg.png)
+![Translator and Jokes](./app/read-me-img/translatenjokeimg.png)
 
 ## Deployment Link
 
