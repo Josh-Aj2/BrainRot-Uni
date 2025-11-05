@@ -1,221 +1,187 @@
-w# React and 3rd Party API Project
+# BrainRot-Uni 🧠
 
-- [Welcome!](#welcome)
-- [Deliverables](#deliverables)
-- [App Overview](#app-overview)
-  - [APIs and Keys](#apis-and-keys)
-  - [Deployment](#deployment)
-- [Proposal and Timeline](#proposal-and-timeline)
-  - [Timeline:](#timeline)
-- [Scrum Board](#scrum-board)
-- [Project Presentation](#project-presentation)
-- [Agile Written Reflection](#agile-written-reflection)
-- [Tech Checklist](#tech-checklist)
-  - [Project Fundamentals (7)](#project-fundamentals-7)
-  - [React Fundamentals (8)](#react-fundamentals-8)
-  - [State Management (10)](#state-management-10)
-  - [React Router (3)](#react-router-3)
-  - [Forms \& Events (5)](#forms--events-5)
-  - [Style (15)](#style-15)
-  - [A11y (12)](#a11y-12)
-  - [README (4)](#readme-4)
+## Project Introduction
 
-## Welcome!
+BrainRot-Uni is a modern, interactive React web application designed for anime enthusiasts to easily access and explore a wide variety of anime content. Built with Vite and React, this application demonstrates proficiency in modern React development practices including state management, client-side routing, and third-party API integration.
 
-Hello everyone, it's been a whirlwind, but believe it or not, you know more than enough to get your React project started! You've already built projects just like this one using Vanilla JS. The whole idea behind this one is that you'll see how much faster and farther you can build when you use a tool like React.
+Users can browse through a massive collection of anime, see upcoming seasons, explore character information, search for their favorite anime, and enjoy fun interactive features like random joke generation and quirky language translations. Our goal is to provide a seamless and enjoyable entertainment experience for anime fans.
 
-## Learning Objectives
+This project was built to demonstrate mastery of React fundamentals, state management, and modern web development technologies. It's intended for developers looking to showcase their React skills, potential employers evaluating technical capabilities, and anyone interested in learning advanced React patterns and best practices.
 
-- Demonstrate your skills learned from Mod 7:
-- Develop teamwork skills, including communication, problem-solving, compromise, and task management
-- Strengthen your Git workflow fundamentals, managing branches, navigating merge conflicts, and maintaining a repository
-- Practice Agile methodologies by managing a scrum board and by performing daily stand-up and stand-down.
-- Deploy a project!
-- Practice your technical communication through a presentation.
+**ADD SCREENSHOTS HERE**
 
-## Deliverables
+## Deployment Link
 
-For this project, your team will collectively be on the hook for the following:
+[Deployment Link Coming Soon]
 
-- A proposal document
-- GitHub Organization (you only need one repo)
-- High Fidelity Wireframe(figma, Miro, draw.io, photoshop etc...)
-- Scrum Board with Backlog, In Progress, and Done
-- A React app that meets the technical requirements listed below
-- A presentation slideshow + Walkthrough demo video
-- A reflection on your use of Agile methodologies
-- A deployed project link(optional)
+## Additional Links
 
-## Roles
+- **Wireframes**: [Link to your wireframes (e.g., Figma, Balsamiq)]
+- **Project Proposal**: [Link to your project proposal document](./proposal.md)
+- **Scrum Board**: [Link to your project management board]
 
-- Software Engineer
-- Scrum Master
-- Engineering Manager (instructor)
+## Tech Stack
 
-## App Overview
+### Frontend
 
-Your app will have to use a third party API to fetch data, but instead of only 2 fetches, you'll have to make 3! And unlike your previous projects that all took place using a single page, this time you're going to use client side routing to create multiple "pages"! And while it does not need to be everywhere, you must use context at least _once_ in your app.
+- **Framework**: React 18+
+- **Build Tool**: Vite
+- **Routing**: React Router v6
+- **State Management**: React Context API, useState, useEffect
+- **Styling**: CSS with responsive design
+- **Language**: JavaScript (ES6+)
 
-There are, of course more specifics below in the checklist, but at its heart, all we're asking for is an app that:
+### Backend
 
-- makes three fetches ✅
-- is made with React ✅
-- uses client-side routing ✅
-- implements context ✅
+- **APIs**:
+  - Jikan API for anime and character data
+  - MyMemory Translation API for language translation
+  - Official Joke API for random joke generation
+- **Architecture**: Component-based architecture with hooks
+- **Data Handling**: Fetch API with async/await and error handling
 
-### APIs and Keys
+## Project Set Up Instructions
 
-You are free to use any API that you choose; there are a few things we will require
+To get a local copy up and running, follow these simple steps.
 
-- It must be free.
-- APIs that do not require an API key are preferred as these can be deployed.
-- It can require an API key but you MUST NOT push it to your repo. Use `.gitignore` to hide your API key. If you go this route, include instructions for how your application uses the API key and what another developer can do to get their own (check out the [Giphy API homework](https://github.com/The-Marcy-Lab-School/7-0-2-assignment-key?tab=readme-ov-file#hiding-your-api-key-from-github) for an example of these instructions)
-- You can use `json-server` to create your own API. If you go this route, deployment will be an extra step but it will be possible.
+### Prerequisites
 
-### Deployment
+- Node.js (version 16 or higher)
+- npm or yarn package manager
 
-Deployment will not be a requirement for this project.
+### Frontend
 
-Depending on which of the above options you choose, you may or may not be able to easily deploy your application. That said, you are strongly encouraged to use a free API without an API key as it is MUCH easier to deploy. Here is the list of APIs we recommend: [free APIs](https://gist.github.com/MostlyFocusedMike/2a0825c062b79d33e5003f0f767ad0fa)
+1. **Clone the repo**
 
-As a reminder, check out this resource for [deploying a Vite project to Github pages](https://github.com/The-Marcy-Lab-School/2-3-3-resource_deploying-with-github-pages).
+   ```bash
+   git clone <repository-url>
+   cd BrainRot-Uni
+   ```
 
-## Proposal and Timeline
+2. **Navigate to the app directory**
 
-As a part of your proposal, you will need to submit a document that includes the following:
+   ```bash
+   cd app
+   ```
 
-- A mission statement for the app (who its for, what it does, and why they would use it)
-- The API and specific endpoints you plan on using
-- MVP user stories (users can...)
-- Stretch user stories
-- Timeline for reaching MVP in 1 week
-- Wireframes of each page in your application
+3. **Install dependencies**
 
-Use this template that has been provided for you: [proposal template](./proposal.md).
+   ```bash
+   npm install
+   ```
 
-### Timeline:
+4. **Start the development server**
 
-This one is up to you! But here's the catch: we'll hold you to it. You've done a few of these projects by now, so you should know about how much work you can get done in a week. You know what we're expecting you to get done by the end (3 fetches, multi-page routing, React), so you can work backward from there.
+   ```bash
+   npm run dev
+   ```
 
-**Before you start your project, you'll have to submit the deadlines you think you can hit and get it approved**. Don't go crazy! This exercise is about setting _realistic deadlines for your team_.
+5. **Open your browser and navigate to `http://localhost:5173`**
 
-> **💡 Pro Tip:** It's always better to <u>under-promise and over-deliver</u>.
+### Build for Production
 
-Make sure you look over the entire project and think about what will take the most time.
+```bash
+npm run build
+npm run preview
+```
 
-## Scrum Board
+## Project Features
 
-Your team must create a GitHub Organization and a Scrum board to manage your tasks. Each morning during stand-up, you will update your scrum board and assign tasks.
+### Core Functionality
 
-Use this [scrumboard](https://github.com/users/EMarcantonio/projects/1/views/1?layout=board) as an example.
+- ✅ **Anime Browsing**: Browse top anime with detailed information
+- ✅ **Character Information**: Explore detailed character profiles and descriptions
+- ✅ **Upcoming Seasons**: Discover new anime seasons and releases
+- ✅ **Search Functionality**: Search for specific anime titles
+- ✅ **Translation Tool**: Translate text between different languages
+- ✅ **Random Joke Generator**: Enjoy random jokes for entertainment
+- ✅ **React Components**: Modular, reusable component architecture
+- ✅ **Client-Side Routing**: Multi-page application with React Router
+- ✅ **Context API**: Global state management for app-wide features
+- ✅ **Responsive Design**: Mobile-first approach with modern CSS
 
-## Project Presentation
+### Technical Requirements Met
 
-At the end of the project week, your team will present your project to the class in the form of a presentation! The presentation should feature speaking roles by each member of the team and include a short (under 2 minutes) recording of the built application. The entire presentation should last no longer than 5 minutes.
+- **Project Fundamentals**: Vite, React, React Router, API integration, Context usage
+- **React Fundamentals**: Component architecture, props, state management
+- **State Management**: Hooks (useState, useEffect, useContext), state lifting
+- **Routing**: Multi-page navigation with proper Link components
+- **Forms & Events**: Controlled forms, event handling, user interactions
+- **Styling**: Responsive design, consistent theming, hover states
+- **Accessibility**: Semantic HTML, proper labeling, color contrast
 
-Use the following [template](https://docs.google.com/presentation/d/1X3OVnZ1EEatqc9lL-3VS8mkGDjeBqfyqBgdGqZgOuEs/edit?usp=sharing) and [example](https://docs.google.com/presentation/d/1zyfnu7PDpf5E3Ff7FIUdqAyvMGiAzdh_06RHAau4nF4/edit#slide=id.g2b32ee03b40_0_140)
+## API Integration
 
-## Agile Written Reflection
+### Jikan API (MyAnimeList)
 
-During project weeks at Marcy, you get to practice the [Agile Methodology](https://www.atlassian.com/agile). Your team will:
+- **Top Anime**: Fetch detailed information about top-rated anime
+- **Top Characters**: Get comprehensive character profiles and descriptions
+- **Upcoming Seasons**: Discover new anime releases and seasons
+- **Search Anime**: Search functionality for finding specific anime titles
 
-- Use agile rituals like **daily stand-up** to transparently communicate progress and roadblocks.
-- Use agile tools like a **scrum board** to visualize and manage tasks.
-- Use agile strategies like creating a **timeline** to guide and structure your priorities.
-- Perform a **retrospective** and reflect on what went well and what could be improved.
+### Additional APIs
 
-In addition to the technical component of this project, your team will write a short reflection on your week (~250 words) thinking critically about how you and your team practiced the Agile methodology.
+- **Translation Service**: MyMemory API for multi-language text translation
+- **Entertainment**: Official Joke API for random joke generation
 
-See the [Agile Methodology Reflection document](./agile-methodology-reflection.md) for the specific questions you are expected to reflect on.
+## Development Workflow
 
-**Only one reflection per group is required**.
+### Branching & Pull Requests
 
-## Tech Checklist
+- Never push directly to main. All work should be done on separate branches.
+- Create a pull request (PR) to merge your changes into main.
+- Ensure PRs are reviewed by at least one other person before merging.
 
-### Project Fundamentals (7)
+### Commit Messages
 
-- [ ] Used Vite for this project
-- [ ] Used React
-- [ ] Used React Router for client side routing
-- [ ] Made a fetch to get multiple resources
-- [ ] Made a fetch to get a single, specific resource
-- [ ] Made a third fetch for whatever you want
-- [ ] Use Context at least once (set up a dark mode)
-- [ ] **Bonus: Were able to get it deployed in a functional state**
+- Write thoughtful and descriptive commit messages.
+- Start your commit messages with a relevant prefix, such as:
+  - `feat:` A new feature
+  - `style:` CSS or styling changes
+  - `update:` A non-breaking change
+  - `fix:` A bug fix
+  - `delete:` Removing code or files
 
-### React Fundamentals (8)
+### Documentation
 
-- [ ] Created at least 3 components
-- [ ] Have all components in their own files (1 export per file)
-- [ ] Passed props to a component at least 3 times
-  - [ ] 1st check box
-  - [ ] 2nd check box
-  - [ ] 3rd check box
-- [ ] Rendered an array of items to the screen at least once
-- [ ] At no point did you ever use any vanilla DOM JS methods
+- Use inline comments to clarify complex parts of your code.
+- Remove all commented-out code before committing.
+- Ensure all functions and files have clear, concise descriptions.
 
-### State Management (10)
+### Project Management
 
-- [ ] The `useContext` hook is used at least once
-- [ ] Used the `useEffect` hook at least 2 times
-  - [ ] 1st check box
-  - [ ] 2nd check box
-- [ ] Used the `useState` hook at least 3 times
-  - [ ] 1st check box
-  - [ ] 2nd check box
-  - [ ] 3rd check box
-- [ ] Lifted state up out of a component at least once
-  - That is a fancy way of saying that you had the state of a component and then passed down the getter and setter functions for the hook to a child component. You've seen us do this!
-- [ ] A Context is created to manage global state
+- Keep the project's scrum board up-to-date.
+- Write specific and descriptive cards for all tasks.
+- PR descriptions should be detailed, outlining the changes made and referencing the corresponding task on the scrum board.
 
-### React Router (3)
+## Contribution Instructions
 
-- [ ] Had at least 2 different pages in the application
-- [ ] Used the proper `Link` components to navigate between pages
-- [ ] Used the `useParams` hook at least once
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-### Forms & Events (5)
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
-- [ ] Handled at least 2 non-submission events (clicking on something causes a UI change)
-  - [ ] 1st check box
-  - [ ] 2nd check box
-- [ ] Handled form submission event properly with React syntax
-- [ ] Demonstrated a working controlled Form
+1. **Fork the Project**
+2. **Create your Feature Branch** (`git checkout -b feature/AmazingFeature`)
+3. **Commit your Changes** (`git commit -m 'Add some AmazingFeature'`)
+4. **Push to the Branch** (`git push origin feature/AmazingFeature`)
+5. **Open a Pull Request**
 
-### Style (15)
+Don't forget to star the project! Thanks again!
 
-- [ ] Navigation bar fits cleanly on mobile and desktop
-- [ ] Navigation visually indicates what page you are on (look into `NavLink`)
-  - Think underlines, bolding, etc. this should change as you move around the site
-- [ ] Used Flexbox or Grid to style list of components
-- [ ] Repeated elements have a consistent "card" style
-- [ ] Site has a primary color
-- [ ] Site has a secondary color
-- [ ] Site has an accent color
-  - This is for things like buttons, links, etc.
-- [ ] No more than 2 different fonts were used on any one page
-- [ ] Buttons have altered visual states for hover, active, and focus
-- [ ] Links have altered visual states for hover, active, and focus
+## License
 
-### A11y (12)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- [ ] There is a `main` element on _each_ page
-- [ ] There is a `nav` element on _each_ page
-- [ ] The `nav` contains a `ul` of links
-- [ ] At least one `h1` element on _each_ page
-- [ ] At least one `section` is used properly on _each_ page
-- [ ] Heading tag hierarchy is always correct
-- [ ] `div` is never used in place of `ul` and `li`
-- [ ] Every `form` `input` has a proper `label`
-- [ ] Each `form` is `aria` labelled properly to make it a landmark
-- [ ] Every `img` has a unique `alt` (if applicable, get points if no image)
-- [ ] All colors have a AAA difference
-  - https://color.a11y.com can check your site for you!
-- [ ] All buttons look like buttons, all links look like links
+## Acknowledgments
 
-### README (4)
+- The React team for the amazing framework
+- Vite for the fast build tooling
+- Jikan API for comprehensive anime data
+- MyMemory API for translation services
+- Official Joke API for entertainment features
+- The open-source community for inspiration and tools
+- Marcy Lab School for the learning opportunity
 
-- [ ] Includes a README.md file
-- [ ] The README file describes the purpose and audience for the application
-- [ ] The README file describes the user stories
-- [ ] The README file include screenshots of the final project
+---
+
+**Happy Anime Browsing! 🎌✨**
